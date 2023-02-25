@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+  font-family: sans-serif;
+  margin: 0;
+}
+body[data-theme="dark"] {
+  --bgColor: #0a0a0a;
+  --borderColor: #131313;
+  --boxBgColor: #0b0b0b;
+  --settingsBgColor: #0c0c0c;
+  --fontColor: #fff;
+}
+body[data-theme="light"] {
+  --bgColor: #fff;
+  --borderColor: #c0c0c0;
+  --boxBgColor: #e0e0e0;
+  --settingsBgColor: #dcdcdc;
+  --fontColor: #000;
+}
+body {
+  background-color: var(--bgColor);
+  color: var(--fontColor);
+}
+#main {
+  width: 800px;
+  height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.box {
+  margin: 5px;
+  border: var(--borderColor) solid 5px;
+  border-radius: 10px;
+  background-color: var(--boxBgColor);
+  font-size: 180px;
+}
+.box::first-letter {
+  line-height: normal;
+  display: inline-block;
+  vertical-align: middle;
+}
+#settings {
+  background-color: var(--settingsBgColor);
+  margin-top: 0px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+  display: flex;
+}
+button {
+  color: var(--fontColor);
+  border: var(--borderColor) solid 5px;
+  background-color: var(--boxBgColor);
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+.infoDiv{
+  height: 100%;
+  width: 220px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button:focus {
+  outline: none;
+}
+#themeButton {
+  margin-left: auto;
+  margin-right: 7px;
+}
+#resetGame {
+  margin-left: 7px;
+  margin-right: auto;
+}
+#OScore{
+  margin-right: 50px;
+}
+#XScore{
+  margin-left: 50px;
+}
