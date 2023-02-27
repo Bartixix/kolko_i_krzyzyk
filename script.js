@@ -1,13 +1,14 @@
 const boxes = 9;
 const cols = 3;
 const rows = 3;
-let isFirstMove = true;
 let currentRow = 1;
 let currentCol = 1;
-let currentPlayer = false;
+let currentPlayer = true;
 let gameEnded = false;
 let currentTheme = true;
+let isFirstMove = true;
 let score = [0, 0];
+let compliteLine = [0, 0];
 
 function refreshScore() {
   document.getElementById("OScore").textContent = `"O" score: ${score[0]}`;
@@ -55,6 +56,7 @@ function boxClick(boxId) {
 }
 
 function checkForWin(player) {
+  let loopCounter = 1;
   for (let i = 1; i <= 7; i += 3) {
     if (
       document.getElementById(`box${i}`).textContent ==
@@ -63,9 +65,12 @@ function checkForWin(player) {
         document.getElementById(`box${i + 2}`).textContent &&
       document.getElementById(`box${i}`).textContent != ""
     ) {
+      compliteLine = [2, loopCounter];
+      setLines(compliteLine);
       whoWins(player);
       return;
     }
+    loopCounter++;
   }
   for (let i = 1; i <= 3; i++) {
     if (
@@ -75,6 +80,8 @@ function checkForWin(player) {
         document.getElementById(`box${i + 6}`).textContent &&
       document.getElementById(`box${i}`).textContent != ""
     ) {
+      compliteLine = [1, i];
+      setLines(compliteLine);
       whoWins(player);
       return;
     }
@@ -86,6 +93,8 @@ function checkForWin(player) {
       document.getElementById(`box9`).textContent &&
     document.getElementById(`box1`).textContent != ""
   ) {
+    compliteLine = [3, 1];
+    setLines(compliteLine);
     whoWins(player);
     return;
   }
@@ -96,6 +105,8 @@ function checkForWin(player) {
       document.getElementById(`box7`).textContent &&
     document.getElementById(`box3`).textContent != ""
   ) {
+    compliteLine = [3, 2];
+    setLines(compliteLine);
     whoWins(player);
     return;
   }
@@ -150,10 +161,79 @@ function changeTheme() {
 function clearBoard() {
   for (let i = 1; i <= 9; i++) {
     document.getElementById(`box${i}`).textContent = "";
+    document.getElementById("colShortLine").setAttribute("data-hidden", "true");
+    document.getElementById("rowShortLine").setAttribute("data-hidden", "true");
+    document.getElementById("righLongLine").setAttribute("data-hidden", "true");
+    document.getElementById("leftLongLine").setAttribute("data-hidden", "true");
+
     gameEnded = false;
-    currentPlayer = false;
+    currentPlayer = true;
     isFirstMove = true;
     document.getElementById(`whoWon`).textContent = "";
+  }
+}
+
+function setLines(line) {
+  console.log(line);
+  switch (line[0]) {
+    case 1:
+      document
+        .getElementById("colShortLine")
+        .setAttribute("data-hidden", "false");
+      switch (line[1]) {
+        case 1:
+          document
+            .getElementById("colShortLine")
+            .setAttribute("data-line", "left");
+          break;
+        case 2:
+          document
+            .getElementById("colShortLine")
+            .setAttribute("data-line", "middle");
+          break;
+        case 3:
+          document
+            .getElementById("colShortLine")
+            .setAttribute("data-line", "right");
+          break;
+      }
+      break;
+    case 2:
+      document
+        .getElementById("rowShortLine")
+        .setAttribute("data-hidden", "false");
+      switch (line[1]) {
+        case 1:
+          document
+            .getElementById("rowShortLine")
+            .setAttribute("data-line", "left");
+          break;
+        case 2:
+          document
+            .getElementById("rowShortLine")
+            .setAttribute("data-line", "middle");
+          break;
+        case 3:
+          document
+            .getElementById("rowShortLine")
+            .setAttribute("data-line", "right");
+          break;
+      }
+      break;
+    case 3:
+      switch (line[1]) {
+        case 1:
+          document
+            .getElementById("righLongLine")
+            .setAttribute("data-hidden", "false");
+          break;
+        case 2:
+          document
+            .getElementById("leftLongLine")
+            .setAttribute("data-hidden", "false");
+          break;
+      }
+      break;
   }
 }
 

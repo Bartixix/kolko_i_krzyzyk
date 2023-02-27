@@ -13,9 +13,9 @@
     <div id="content">
       <div id="settings">
         <button id="resetGame" onclick="clearBoard()">Reset</button>
-        <div class="infoDiv" id="OScore"></div>
-        <div class="infoDiv" id="whoWon"></div>
         <div class="infoDiv" id="XScore"></div>
+        <div class="infoDiv" id="whoWon"></div>
+        <div class="infoDiv" id="OScore"></div>
         <button id="themeButton" onclick="changeTheme()">Change Theme</button>
       </div>
       <div id="main">
@@ -28,6 +28,20 @@
         <div class="box" id="box7"></div>
         <div class="box" id="box8"></div>
         <div class="box" id="box9"></div>
+        <div
+          id="rowShortLine"
+          class="lines"
+          data-hidden="true"
+          data-line="middle"
+        ></div>
+        <div
+          id="colShortLine"
+          class="lines"
+          data-hidden="true"
+          data-line="middle"
+        ></div>
+        <div id="righLongLine" class="lines" data-hidden="true"></div>
+        <div id="leftLongLine" class="lines" data-hidden="true"></div>
       </div>
     </div>
   </body>
