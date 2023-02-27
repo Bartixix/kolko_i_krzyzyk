@@ -107,22 +107,22 @@ button:focus {
   display: inline-block;
 }
 #rowShortLine[data-line="left"] {
-  top: 17%;
+  top: 15.5%;
 }
 #rowShortLine[data-line="middle"] {
-  top: 50%;
+  top: 49%;
 }
 #rowShortLine[data-line="right"] {
-  top: 83%;
+  top: 82%;
 }
 #colShortLine[data-line="left"] {
-  left: 17%;
+  left: 16.5%;
 }
 #colShortLine[data-line="middle"] {
   left: 50%;
 }
 #colShortLine[data-line="right"] {
-  left: 83%;
+  left: 83.3%;
 }
 .lines {
   height: 10px;
@@ -140,7 +140,7 @@ button:focus {
   margin: -5px 0 0 -370px;
   transform: rotate(90deg);
 }
-#rightLongLine {
+#righLongLine {
   width: 950px;
   top: 50%;
   left: 50%;

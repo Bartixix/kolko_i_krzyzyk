@@ -1,12 +1,12 @@
 const boxes = 9;
 const cols = 3;
 const rows = 3;
-let isFirstMove = true;
 let currentRow = 1;
 let currentCol = 1;
 let currentPlayer = true;
 let gameEnded = false;
 let currentTheme = true;
+let isFirstMove = true;
 let score = [0, 0];
 let compliteLine = [0, 0];
 
@@ -56,6 +56,7 @@ function boxClick(boxId) {
 }
 
 function checkForWin(player) {
+  let loopCounter = 1;
   for (let i = 1; i <= 7; i += 3) {
     if (
       document.getElementById(`box${i}`).textContent ==
@@ -64,11 +65,12 @@ function checkForWin(player) {
         document.getElementById(`box${i + 2}`).textContent &&
       document.getElementById(`box${i}`).textContent != ""
     ) {
-      compliteLine = [2, i];
+      compliteLine = [2, loopCounter];
       setLines(compliteLine);
       whoWins(player);
       return;
     }
+    loopCounter++;
   }
   for (let i = 1; i <= 3; i++) {
     if (
@@ -172,6 +174,7 @@ function clearBoard() {
 }
 
 function setLines(line) {
+  console.log(line);
   switch (line[0]) {
     case 1:
       document
@@ -221,7 +224,7 @@ function setLines(line) {
       switch (line[1]) {
         case 1:
           document
-            .getElementById("rightLongLine")
+            .getElementById("righLongLine")
             .setAttribute("data-hidden", "false");
           break;
         case 2:
@@ -230,9 +233,6 @@ function setLines(line) {
             .setAttribute("data-hidden", "false");
           break;
       }
-      break;
-    default:
-      console.log(`Wrong parms: ${line}`);
       break;
   }
 }
