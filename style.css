@@ -9,6 +9,7 @@ body[data-theme="dark"] {
   --borderColor: #131313;
   --boxBgColor: #0b0b0b;
   --settingsBgColor: #0c0c0c;
+  --lineColor: #f00;
   --fontColor: #fff;
 }
 body[data-theme="light"] {
@@ -16,6 +17,7 @@ body[data-theme="light"] {
   --borderColor: #c0c0c0;
   --boxBgColor: #e0e0e0;
   --settingsBgColor: #dcdcdc;
+  --lineColor: #f00;
   --fontColor: #000;
 }
 body {
@@ -92,14 +94,16 @@ button:focus {
 #OScore {
   margin-left: 50px;
 }
-#rightLongLine[data-hidden="true"],
+#righLongLine[data-hidden="true"],
 #leftLongLine[data-hidden="true"],
-#shortLine[data-hidden="true"] {
+#rowShortLine[data-hidden="true"],
+#colShortLine[data-hidden="true"] {
   display: none;
 }
-#rightLongLine[data-hidden="false"],
+#righLongLine[data-hidden="false"],
 #leftLongLine[data-hidden="false"],
-#shortLine[data-hidden="false"] {
+#rowShortLine[data-hidden="false"],
+#colShortLine[data-hidden="false"] {
   display: inline-block;
 }
 #rowShortLine[data-line="left"] {
@@ -122,7 +126,7 @@ button:focus {
 }
 .lines {
   height: 10px;
-  background-color: var(--fontColor);
+  background-color: var(--lineColor);
   position: absolute;
 }
 #rowShortLine {
