@@ -174,7 +174,6 @@ function clearBoard() {
 }
 
 function setLines(line) {
-  console.log(line);
   switch (line[0]) {
     case 1:
       document
