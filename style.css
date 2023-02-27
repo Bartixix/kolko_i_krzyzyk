@@ -30,6 +30,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  position: relative;
 }
 .box {
   margin: 5px;
@@ -65,7 +66,7 @@ button {
   justify-content: center;
   width: 200px;
 }
-.infoDiv{
+.infoDiv {
   height: 100%;
   width: 220px;
   font-size: 20px;
@@ -85,12 +86,67 @@ button:focus {
   margin-left: 7px;
   margin-right: auto;
 }
-#OScore{
+#XScore {
   margin-right: 50px;
 }
-#XScore{
+#OScore {
   margin-left: 50px;
 }
-#shortLine #longLine{
-  background-color: #0f0;
+#rightLongLine[data-hidden="true"],
+#leftLongLine[data-hidden="true"],
+#shortLine[data-hidden="true"] {
+  display: none;
+}
+#rightLongLine[data-hidden="false"],
+#leftLongLine[data-hidden="false"],
+#shortLine[data-hidden="false"] {
+  display: inline-block;
+}
+#rowShortLine[data-line="left"] {
+  top: 17%;
+}
+#rowShortLine[data-line="middle"] {
+  top: 50%;
+}
+#rowShortLine[data-line="right"] {
+  top: 83%;
+}
+#colShortLine[data-line="left"] {
+  left: 17%;
+}
+#colShortLine[data-line="middle"] {
+  left: 50%;
+}
+#colShortLine[data-line="right"] {
+  left: 83%;
+}
+.lines {
+  height: 10px;
+  background-color: var(--fontColor);
+  position: absolute;
+}
+#rowShortLine {
+  width: 740px;
+  left: 50%;
+  margin: -5px 0 0 -370px;
+}
+#colShortLine {
+  width: 740px;
+  top: 50%;
+  margin: -5px 0 0 -370px;
+  transform: rotate(90deg);
+}
+#rightLongLine {
+  width: 950px;
+  top: 50%;
+  left: 50%;
+  margin: -5px 0 0 -475px;
+  transform: rotate(45deg);
+}
+#leftLongLine {
+  width: 950px;
+  top: 50%;
+  left: 50%;
+  margin: -5px 0 0 -475px;
+  transform: rotate(-45deg);
 }

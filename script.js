@@ -8,6 +8,7 @@ let currentPlayer = true;
 let gameEnded = false;
 let currentTheme = true;
 let score = [0, 0];
+let compliteline = [0, 0, 0];
 
 function refreshScore() {
   document.getElementById("OScore").textContent = `"O" score: ${score[0]}`;
