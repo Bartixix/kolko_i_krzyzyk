@@ -91,3 +91,6 @@ button:focus {
 #XScore{
   margin-left: 50px;
 }
+#shortLine #longLine{
+  background-color: #0f0;
+}
